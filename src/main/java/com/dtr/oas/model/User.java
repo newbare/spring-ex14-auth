@@ -24,7 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.google.common.base.Objects;
 
 @Entity  
-@Table(name="USERS")
+@Table(name="USERS", schema="OAS")
 public class User extends BaseEntity implements UserDetails {
     /*
         CREATE TABLE `USERS` (
@@ -55,7 +55,7 @@ public class User extends BaseEntity implements UserDetails {
     private boolean enabled;
     
     @OneToMany(fetch = FetchType.EAGER)  
-    @JoinTable(name = "user_roles",  
+    @JoinTable(name = "oas.user_roles",  
         joinColumns        = {@JoinColumn(name = "user_id", referencedColumnName = "id")},  
         inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}  
     )  

@@ -21,7 +21,7 @@ import org.springframework.security.core.GrantedAuthority;
 import com.google.common.base.Objects;
 
 @Entity
-@Table(name = "ROLES")
+@Table(name = "ROLES",schema="OAS")
 public class Role extends BaseEntity implements Serializable, GrantedAuthority  {
 
     private static final long serialVersionUID = 6874667425302308430L;
@@ -43,14 +43,14 @@ public class Role extends BaseEntity implements Serializable, GrantedAuthority  
     
     //@OneToMany(cascade = CascadeType.ALL)  
     @OneToMany(fetch = FetchType.EAGER)  
-    @JoinTable(name = "user_roles",   
+    @JoinTable(name = "oas.user_roles",   
         joinColumns        = {@JoinColumn(name = "role_id", referencedColumnName = "id")},  
         inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")}  
     )  
     private Set<User> userRoles;
     
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "role_permissions",
+    @JoinTable(name = "oas.role_permissions",
         joinColumns        = { @JoinColumn(name = "role_id",       referencedColumnName = "id") },
         inverseJoinColumns = { @JoinColumn(name = "permission_id", referencedColumnName = "id") }
     )    

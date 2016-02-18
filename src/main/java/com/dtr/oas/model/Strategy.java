@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Entity
-@Table(name = "STRATEGY")
+@Table(name = "STRATEGY", schema="OAS")
 public class Strategy extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 96285180113476324L;

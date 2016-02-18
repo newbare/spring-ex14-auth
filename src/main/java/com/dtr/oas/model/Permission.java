@@ -20,7 +20,7 @@ import org.springframework.security.core.GrantedAuthority;
 import com.google.common.base.Objects;
 
 @Entity
-@Table(name = "PERMISSIONS")
+@Table(name = "PERMISSIONS", schema="OAS")
 public class Permission extends BaseEntity implements GrantedAuthority {
 
     private static final long serialVersionUID = -5404269148967698143L;
@@ -33,7 +33,7 @@ public class Permission extends BaseEntity implements GrantedAuthority {
     private String permissionname;
     
     @OneToMany(fetch = FetchType.EAGER)  
-    @JoinTable(name = "role_permissions",   
+    @JoinTable(name = "oas.role_permissions",   
         joinColumns        = {@JoinColumn(name = "permission_id", referencedColumnName = "id")},  
         inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}  
     )  
