@@ -1,5 +1,7 @@
 package com.dtr.oas.config;
 
+import static org.hibernate.cfg.AvailableSettings.HBM2DDL_AUTO;
+
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -59,6 +61,7 @@ public class RootConfig {
         Properties properties = new Properties();
         properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
         properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
+        properties.put(HBM2DDL_AUTO, "create-drop");
         //properties.put(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO));        
         return properties;
     }
